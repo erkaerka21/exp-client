@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-
+import { FaPlus } from "react-icons/fa";
 import ProfileRow from "./profile-row";
 import ProtableHead from "./pro-table-head";
+import Modal from "./modal";
 
 const ProfileTable = () => {
   const [proTableLists, setProTableLists] = useState();
@@ -16,7 +17,7 @@ const ProfileTable = () => {
   console.log("protablelists", proTableLists);
   return (
     <div className="mt-5">
-      <div className="overflow-x-auto">
+      <div>
         <table className="table">
           {/* head */}
           <ProtableHead />

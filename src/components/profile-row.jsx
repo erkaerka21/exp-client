@@ -15,18 +15,21 @@ const ProfileRow = ({ list }) => {
         </div>
       </td>
       <td>
-        <div className="font-bold">{list.name}</div>
+        <div className="font-bold">{list.firstName}</div>
+      </td>
+      <td>
+        <div className="font-bold">{list.lastName}</div>
       </td>
       <td>
         <div className="text-sm opacity-50">{list.country}</div>
       </td>
       <td>
-        <p className="badge badge-ghost badge-sm px-8 py-4 text-base">
+        <p className="badge badge-ghost badge-sm px-6 py-5 text-base bg-orange-200 font-semibold">
           {list.job}
         </p>
       </td>
       <td>{list.email}</td>
-      <td>
+      <td className="flex">
         <button className="btn btn-ghost btn-xs">
           <FaEdit className="text-3xl text-violet-500" />
         </button>
