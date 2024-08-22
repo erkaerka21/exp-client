@@ -4,6 +4,7 @@ import ProfileTable from "@/components/profile-table";
 import { FaPlus } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import { useState } from "react";
+import Modal from "@/components/modal";
 // import Modal from "@/components/modal";
 
 export default function Home() {
@@ -13,9 +14,28 @@ export default function Home() {
   const [countryI, setCountryI] = useState("");
   const [jobI, setJobI] = useState("");
   const [emailI, setEmailI] = useState("");
-  const handleChange = (event) => {
-    console.log("input1", event.target.value);
+
+  const createNewWorker = async () => {
+    const response = await fetch(`http://localhost:8000/users`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        firstName: firstNameI,
+        lastName: lastNameI,
+        country: countryI,
+        email: emailI,
+        job: jobI,
+        proImg: "https://img.daisyui.com/images/profile/demo/2@94.webp",
+      }),
+    });
+    const { workers: users } = await response.json();
+    // console.log("nemeh worker:", { workers: users });
+    setSeeModal(false);
   };
+  // console.log("firstName:", setFirstNameI(e.target.value));
+
   return (
     <main className="">
       <h1 className="font-bold text-6xl text-center">Ажилтнуудын мэдээлэл</h1>
@@ -31,6 +51,7 @@ export default function Home() {
       <ProfileTable />
       {seeModal ? (
         <>
+          {/* <Modal setSeeModal={setSeeModal} /> */}
           <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none bg-slate-200">
             <div className="relative w-auto my-6 mx-auto max-w-fit">
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
@@ -40,9 +61,7 @@ export default function Home() {
                   </h3>
                   <button
                     className="bg-transparent border-0 text-black float-right"
-                    onClick={() => {
-                      setSeeModal(false);
-                    }}
+                    onClick={() => setSeeModal(false)}
                   >
                     <IoClose className="text-2xl text-black hover:text-gray-400 focus:outline-none focus:ring focus:ring-gray-300" />
                   </button>
@@ -56,34 +75,46 @@ export default function Home() {
                         </label>
                         <input
                           className="shadow appearance-none border rounded w-full py-2 px-1 text-black"
-                          onChange={handleChange}
+                          onChange={(e) => setFirstNameI(e.target.value)}
                         />
                       </div>
                       <div>
                         <label className="block text-black text-sm font-bold mb-1">
                           Овог
                         </label>
-                        <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
+                        <input
+                          className="shadow appearance-none border rounded w-full py-2 px-1 text-black"
+                          onChange={(e) => setLastNameI(e.target.value)}
+                        />
                       </div>
                     </div>
                     <div>
                       <label className="block text-black text-sm font-bold mb-1">
                         Харьяа улс
                       </label>
-                      <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
+                      <input
+                        className="shadow appearance-none border rounded w-full py-2 px-1 text-black"
+                        onChange={(e) => setCountryI(e.target.value)}
+                      />
                     </div>
                     <div>
                       <label className="block text-black text-sm font-bold mb-1">
                         Мэргэжил
                       </label>
-                      <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
+                      <input
+                        className="shadow appearance-none border rounded w-full py-2 px-1 text-black"
+                        onChange={(e) => setJobI(e.target.value)}
+                      />
                     </div>
 
                     <div>
                       <label className="block text-black text-sm font-bold mb-1">
                         Цахим шуудан
                       </label>
-                      <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
+                      <input
+                        className="shadow appearance-none border rounded w-full py-2 px-1 text-black"
+                        onChange={(e) => setEmailI(e.target.value)}
+                      />
                     </div>
                   </form>
                 </div>
@@ -91,18 +122,14 @@ export default function Home() {
                   <button
                     className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1"
                     type="button"
-                    onClick={() => {
-                      setSeeModal(false);
-                    }}
+                    onClick={() => setSeeModal(false)}
                   >
                     Хаах
                   </button>
                   <button
                     className="text-white bg-green-500 active:bg-green-700 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
                     type="button"
-                    onClick={() => {
-                      setSeeModal(false);
-                    }}
+                    onClick={createNewWorker}
                   >
                     Бүртгэх
                   </button>

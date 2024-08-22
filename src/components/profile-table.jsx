@@ -15,6 +15,9 @@ const ProfileTable = () => {
     getLists();
   }, []);
   console.log("protablelists", proTableLists);
+  const deleteTable = async () => {
+    const response = await fetch(`http://localhost:8000/users/:${id}`, {});
+  };
   return (
     <div className="mt-5">
       <div>

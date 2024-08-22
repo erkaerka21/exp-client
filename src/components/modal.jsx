@@ -2,10 +2,11 @@ import React from "react";
 import { IoClose } from "react-icons/io5";
 import { useState } from "react";
 
-const Modal = () => {
+{
+  /* const Modal = ({ setSeeModal }) => {
   const [seeModal, setSeeModal] = useState(false);
-  return {
-    /* <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none bg-slate-200">
+  return (
+    <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none bg-slate-200">
       <div className="relative w-auto my-6 mx-auto max-w-fit">
         <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
           <div className="flex items-start justify-between p-5 border-b border-solid border-gray-300 rounded-t gap-10">
@@ -15,7 +16,7 @@ const Modal = () => {
             <button
               className="bg-transparent border-0 text-black float-right"
               onClick={() => {
-                setSeeModal(false);
+                return { setSeeModal }(false);
               }}
             >
               <IoClose className="text-2xl text-black hover:text-gray-400 focus:outline-none focus:ring focus:ring-gray-300" />
@@ -63,7 +64,7 @@ const Modal = () => {
               className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1"
               type="button"
               onClick={() => {
-                setSeeModal(false);
+                return { setSeeModal }(false);
               }}
             >
               Хаах
@@ -72,7 +73,7 @@ const Modal = () => {
               className="text-white bg-green-500 active:bg-green-700 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
               type="button"
               onClick={() => {
-                setSeeModal(false);
+                return { setSeeModal }(false);
               }}
             >
               Бүртгэх
@@ -80,8 +81,9 @@ const Modal = () => {
           </div>
         </div>
       </div>
-    </div> */
-  };
-};
+    </div>
+  );
+}; */
+}
 
-export default Modal;
+// export default Modal;
