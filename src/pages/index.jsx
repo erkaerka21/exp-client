@@ -8,6 +8,11 @@ import { useState } from "react";
 
 export default function Home() {
   const [seeModal, setSeeModal] = useState(false);
+  const [firstNameI, setFirstNameI] = useState("");
+  const [lastNameI, setLastNameI] = useState("");
+  const [countryI, setCountryI] = useState("");
+  const [jobI, setJobI] = useState("");
+  const [emailI, setEmailI] = useState("");
   const handleChange = (event) => {
     console.log("input1", event.target.value);
   };
