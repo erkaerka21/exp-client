@@ -34,7 +34,7 @@ const ProfileRow = ({ list }) => {
           <FaEdit className="text-3xl text-violet-500" />
         </button>
         <button className="btn btn-ghost btn-xs">
-          <MdDeleteForever className="text-3xl text-red-600" />
+          <MdDeleteForever className="text-3xl text-red-600" onClick={}/>
         </button>
       </td>
     </tr>
