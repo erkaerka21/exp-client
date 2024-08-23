@@ -6,7 +6,7 @@ import Modal from "./modal";
 
 const ProfileTable = () => {
   const [proTableLists, setProTableLists] = useState();
-  const [deleted, setDeleted] = useState(null);
+
   const getLists = async () => {
     const response = await fetch(`http://localhost:8000/users`);
     const { users } = await response.json();
@@ -16,15 +16,7 @@ const ProfileTable = () => {
     getLists();
   }, []);
   console.log("protablelists", proTableLists);
-  const deleteTable = async () => {
-    await fetch(`http://localhost:8000/users/6`, {
-      method: "DELETE",
-    });
-    setDeleted("Амжилттай устгалаа");
-  };
-  useEffect(() => {
-    deleteTable();
-  }, []);
+
   return (
     <div className="mt-5">
       <div>

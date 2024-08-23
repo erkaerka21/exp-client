@@ -1,7 +1,21 @@
 import React from "react";
 import { FaEdit } from "react-icons/fa";
 import { MdDeleteForever } from "react-icons/md";
+import { useEffect } from "react";
+import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
 const ProfileRow = ({ list }) => {
+  // const [deleted, setDeleted] = useState(null);
+  // const deleteRow = async (id) => {
+  //   await fetch(`http://localhost:8000/users/${id}`, {
+  //     method: "DELETE",
+  //   });
+  //   setDeleted("амжилттай устгасан");
+  // };
+  // useEffect(() => {
+  //   deleteRow();
+  // }, []);
+  console.log("darsan id", list.id);
   return (
     <tr>
       <td>{list.id}</td>
@@ -34,9 +48,15 @@ const ProfileRow = ({ list }) => {
           <FaEdit className="text-3xl text-violet-500" />
         </button>
         <button className="btn btn-ghost btn-xs">
-          <MdDeleteForever className="text-3xl text-red-600" onClick={}/>
+          <MdDeleteForever
+            className="text-3xl text-red-600"
+            onClick={() => {
+              list.id;
+            }}
+          />
         </button>
       </td>
+      {/* status: {deleted} */}
     </tr>
   );
 };
