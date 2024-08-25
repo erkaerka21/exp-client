@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { FaPlus } from "react-icons/fa";
 import ProfileRow from "./profile-row";
 import ProtableHead from "./pro-table-head";
-import Modal from "./modal";
 
 const ProfileTable = () => {
   const [proTableLists, setProTableLists] = useState();

@@ -2,9 +2,15 @@ import React from "react";
 import { IoClose } from "react-icons/io5";
 import { useState } from "react";
 
-{
-  /* const Modal = ({ setSeeModal }) => {
-  const [seeModal, setSeeModal] = useState(false);
+const Modal = ({
+  setSeeModal,
+  setFirstNameI,
+  setLastNameI,
+  setCountryI,
+  setJobI,
+  setEmailI,
+  createNewWorker,
+}) => {
   return (
     <div className="flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none bg-slate-200">
       <div className="relative w-auto my-6 mx-auto max-w-fit">
@@ -16,7 +22,7 @@ import { useState } from "react";
             <button
               className="bg-transparent border-0 text-black float-right"
               onClick={() => {
-                return { setSeeModal }(false);
+                return setSeeModal(false);
               }}
             >
               <IoClose className="text-2xl text-black hover:text-gray-400 focus:outline-none focus:ring focus:ring-gray-300" />
@@ -29,33 +35,48 @@ import { useState } from "react";
                   <label className="block text-black text-sm font-bold mb-1">
                     Нэр
                   </label>
-                  <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
+                  <input
+                    className="shadow appearance-none border rounded w-full py-2 px-1 text-black"
+                    onChange={(e) => setFirstNameI(e.target.value)}
+                  />
                 </div>
                 <div>
                   <label className="block text-black text-sm font-bold mb-1">
                     Овог
                   </label>
-                  <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
+                  <input
+                    className="shadow appearance-none border rounded w-full py-2 px-1 text-black"
+                    onChange={(e) => setLastNameI(e.target.value)}
+                  />
                 </div>
               </div>
               <div>
                 <label className="block text-black text-sm font-bold mb-1">
                   Харьяа улс
                 </label>
-                <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
+                <input
+                  className="shadow appearance-none border rounded w-full py-2 px-1 text-black"
+                  onChange={(e) => setCountryI(e.target.value)}
+                />
               </div>
               <div>
                 <label className="block text-black text-sm font-bold mb-1">
                   Мэргэжил
                 </label>
-                <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
+                <input
+                  className="shadow appearance-none border rounded w-full py-2 px-1 text-black"
+                  onChange={(e) => setJobI(e.target.value)}
+                />
               </div>
 
               <div>
                 <label className="block text-black text-sm font-bold mb-1">
                   Цахим шуудан
                 </label>
-                <input className="shadow appearance-none border rounded w-full py-2 px-1 text-black" />
+                <input
+                  className="shadow appearance-none border rounded w-full py-2 px-1 text-black"
+                  onChange={(e) => setEmailI(e.target.value)}
+                />
               </div>
             </form>
           </div>
@@ -64,7 +85,7 @@ import { useState } from "react";
               className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1"
               type="button"
               onClick={() => {
-                return { setSeeModal }(false);
+                return setSeeModal(false);
               }}
             >
               Хаах
@@ -72,9 +93,7 @@ import { useState } from "react";
             <button
               className="text-white bg-green-500 active:bg-green-700 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
               type="button"
-              onClick={() => {
-                return { setSeeModal }(false);
-              }}
+              onClick={createNewWorker}
             >
               Бүртгэх
             </button>
@@ -83,7 +102,6 @@ import { useState } from "react";
       </div>
     </div>
   );
-}; */
-}
+};
 
-// export default Modal;
+export default Modal;
